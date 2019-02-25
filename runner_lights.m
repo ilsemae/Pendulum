@@ -1,7 +1,10 @@
 p.totalmasses = 7;
 
+% linkage masses
 p.m1 = 6;    p.m2 = 6;   p.m3 = 6;  p.m4 = 6;  p.m5 = 2;    p.m6 = 2;   p.m7 = 2;
+% linkage lengths
 p.l1 = 5;    p.l2 = 5;   p.l3 = 5;  p.l4 = 5;  p.l5 = 1;    p.l6 = 1;   p.l7 = 1;
+% gravitational constant
 p.g  = 10;
 
 %F#'s below are forces in the x direction (e.g. wind)

@@ -1,7 +1,11 @@
 
+% linkage masses
 p.m1 = 10;       p.m2 = 10;      p.m3 = 10;       p.m4 = 10;
+% linkage lengths
 p.l1 = 5;       p.l2 = 5;       p.l3 = 5;        p.l4 = 5;
+% gravitational constant
 p.g  = 10;
+% initial angle and angular speeds
 theta0    = [  pi/2  ,   0    ,   pi/4    ,   5*pi/4   ];
 thetadot0 = [    0   ,   0    ,   0    ,   0   ];
 
