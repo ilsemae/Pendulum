@@ -1,7 +1,7 @@
 function plot_and_animate_lights(p,t,q)
 
     %plot angles vs time
-    figure;
+    figure(2);
     plot(t,q(:,1),'r',t,q(:,2)-4,'b',t,q(:,3)-8,'k');
         if p.totalmasses == 4
             hold on;
@@ -36,7 +36,8 @@ function plot_and_animate_lights(p,t,q)
     %animation
     linkage_width = abs(rod4x(1,2)-rod1x(1,1));
     linkage_height = abs(rod1y(1,1)-rod2y(1,2));
-    figure;
+    figure(3);
+    F = [];
     for j = 1:size(t,1)    
         pause(0.01);
         plot(rod1x(j,:),rod1y(j,:),'b',rod2x(j,:),rod2y(j,:),'b',rod3x(j,:),rod3y(j,:),'b',rod4x(j,:),rod4y(j,:),'b',...
@@ -44,6 +45,10 @@ function plot_and_animate_lights(p,t,q)
         axis equal;
         axis([-5 linkage_width+5 -linkage_height-5 linkage_height+5]);
         if j == 1 pause(2); end
+        F = [F getframe(3)];
     end
-
+    v = VideoWriter('pedulum_animation.avi','Motion JPEG AVI');
+    v.FrameRate = 40;
+    open(v);
+    writeVideo(v,F);
 end

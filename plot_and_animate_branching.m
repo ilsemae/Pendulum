@@ -1,7 +1,7 @@
 function plot_and_animate_branching(p,t,q)
 
     %plot angles vs time
-    figure;
+    figure(2);
     plot(t,q(:,1),'r',t,q(:,2)-4,'b',t,q(:,3)-8,'g');
         if p.totalmasses == 4
             hold on;
@@ -21,7 +21,8 @@ function plot_and_animate_branching(p,t,q)
     pause(2);
 
     %animation
-    figure;
+    figure(3);
+    F = [];
     axissize = p.l1+p.l2+p.l3+5;
     for j = 1:size(t,1)    
         pause(0.01);
@@ -29,6 +30,12 @@ function plot_and_animate_branching(p,t,q)
         axis equal;
         axis([-axissize axissize -axissize axissize]);
         if j == 1 pause(2); end
+        F = [F getframe(3)];
     end
+    v = VideoWriter('pedulum_animation.avi','Motion JPEG AVI');
+    v.FrameRate = 40;
+    open(v);
+    writeVideo(v,F);
+
 
 end

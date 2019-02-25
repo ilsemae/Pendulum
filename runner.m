@@ -6,12 +6,12 @@ p.l1 = 5;       p.l2 = 5;       p.l3 = 5;        p.l4 = 5;
 % gravitational constant
 p.g  = 10;
 % initial angle and angular speeds
-theta0    = [  pi/2  ,   0    ,   pi/4    ,   5*pi/4   ];
+theta0    = [  pi/3  ,   pi/2-.1    ,   3*pi/4    ,   4*pi/3   ];
 thetadot0 = [    0   ,   0    ,   0    ,   0   ];
 
 reltol = 10e-9;
 abstol = 10e-9;
-tmax   = 50;
+tmax   = 30;
 timesteps = 10^3;
 
 %triple pendulum via angular momentum balance
@@ -27,7 +27,7 @@ timesteps = 10^3;
 
 %quadruple pendulum via AMB
 %**F1-F4 are external forces in the x direction
-  p.F1 = 0; p.F2 = 0; p.F3 = 0; p.F4 = 0;   p.totalmasses = 4; q0 = [theta0 thetadot0]';            [tarray , qarray] =      quadruple_pendulum_AMB(p, q0, reltol, abstol, tmax, timesteps); conservationCheck_4bars(q0,tarray,qarray,p);      plot_and_animate(p,tarray,qarray);
+%   p.F1 = 0; p.F2 = 0; p.F3 = 0; p.F4 = 0;   p.totalmasses = 4; q0 = [theta0 thetadot0]';            [tarray , qarray] =      quadruple_pendulum_AMB(p, q0, reltol, abstol, tmax, timesteps); conservationCheck_4bars(q0,tarray,qarray,p);      plot_and_animate(p,tarray,qarray);
 
 %4-bar linkage via DAEs
 %**F1-F3 are external forces in the x direction
@@ -42,5 +42,5 @@ timesteps = 10^3;
 
 %branching double pendulum via DAEs
 %**F1-F3 are external forces in the x direction
-%   p.F1 = 0; p.F2 = 0; p.F3 = 0;   p.totalmasses = 3; q0 = [theta0(1:3) thetadot0(1:3)]';  [tarray , qarray] =     branching_pendulum_DAEs(p, q0, reltol, abstol, tmax, timesteps); conservationCheck_branching(q0,tarray,qarray,p);  plot_and_animate_branching(p,tarray,qarray);
+  p.F1 = 0; p.F2 = 0; p.F3 = 0;   p.totalmasses = 3; q0 = [theta0(1:3) thetadot0(1:3)]';  [tarray , qarray] =     branching_pendulum_DAEs(p, q0, reltol, abstol, tmax, timesteps); conservationCheck_branching(q0,tarray,qarray,p);  plot_and_animate_branching(p,tarray,qarray);
 
