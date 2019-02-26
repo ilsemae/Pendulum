@@ -18,3 +18,5 @@ This code comprises  simulation (in Matlab) of a triple pendulum and a four-bar 
 
 A triple pendulum is a single pendulum with another pendulum hinged at its end, which in turn has another pendulum hinged at its end. See Appendix 2.01 for a drawing of our triple pendulum setup. In order to find the motion of this system given initial positions and velocities, we need to know the accelerations of at least the angular positions of each linkage. In simpler systems, (such as systems with point masses) we can often use linear momentum balance to find equations of motion. In this case, however, doing so would leave us
 with unknown values for the tension forces at the hinges. We can, however, use angular momentum balance, which eliminates these terms.
+
+(work in progress)
